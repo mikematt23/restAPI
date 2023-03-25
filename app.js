@@ -29,4 +29,4 @@ app.post('/addUser',async (req,res)=>{
 let port = process.env.PORT || 3001
 app.use(sqlGameRoutes)
 app.listen(port)
-console.log('app started on port 3001')
+console.log(`app listneing on port ${port}`)
