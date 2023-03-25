@@ -14,7 +14,7 @@ app.get('/',function(req,res){
   res.sendFile(path.join(__dirname,'/index.html'))
 })
 
-let port = 3001
+let port = process.env.PORT
 app.use(sqlGameRoutes)
 app.use(users)
 app.listen(port)
