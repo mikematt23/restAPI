@@ -26,7 +26,7 @@ app.post('/addUser',async (req,res)=>{
  await db.query(`INSERT INTO users (usersName,password,email,level,lives) VALUES ('${userName}','${password}','${email}',0,0)`)
  return res.json({message:"it is working"})
 })
-let port = process.env.PORT || 3001
+let port = process.env.PORT 
 app.use(sqlGameRoutes)
 app.listen(port)
 console.log(`app listneing on port ${port}`)
