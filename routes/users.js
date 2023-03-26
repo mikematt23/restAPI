@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const db = require('../data/database')
 
 router.get('/users',async function(req,res){
@@ -16,6 +16,7 @@ router.post('/addUser',async (req,res)=>{
 
   await bcrypt.hash(password, 10, async (err,hash)=>{
     let hashedPassword = hash
+    console.log(password,  hashedPassword)
     await db.query(`INSERT INTO users (usersName,password,email,level,lives) VALUES ('${userName}','${hashedPassword}','${email}',0,0)`)
   })
  return res.json({message:"it is working"})
