@@ -13,5 +13,5 @@ app.get('/',function(req,res){
 app.use(sqlGameRoutes)
 app.use(users)
 
-app.listen(port)
+app.listen(3001)
 console.log(`app listneing on port ${port}`)
