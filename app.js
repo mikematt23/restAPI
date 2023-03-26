@@ -1,9 +1,11 @@
 const express = require('express')
 const path = require('path')
 const app = express()
+const cors = require('cors')
 const users = require('./routes/users')
 const sqlGameRoutes = require('./routes/sqlGameRoutes')
 
+app.use(cors())
 app.use(express.json())
 let port = process.env.PORT
 
