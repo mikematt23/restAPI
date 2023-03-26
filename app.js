@@ -1,5 +1,4 @@
 const express = require('express')
-const router = express.Router()
 const path = require('path')
 const app = express()
 const users = require('./routes/users')
@@ -14,5 +13,5 @@ app.get('/',function(req,res){
 app.use(sqlGameRoutes)
 app.use(users)
 
-app.listen(port)
+app.listen(3001)
 console.log(`app listneing on port ${port}`)
