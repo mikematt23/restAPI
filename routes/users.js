@@ -8,6 +8,13 @@ router.get('/users',async function(req,res){
    return res.json(await db.query(query))
 })
 //
+router.get('/user',async (req,res)=>{
+  const userName = req.body.user
+  const query = `SELECT * FROM users WHERE usersName = '${userName}'`
+  let user = await db.query(query)
+  console.log(user)
+  return res.json(user)
+})
 router.post('/addUser',async (req,res)=>{
   const userName = req.body.user
   const password = req.body.password
