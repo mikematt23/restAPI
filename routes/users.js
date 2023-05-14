@@ -12,7 +12,6 @@ router.post('/user',async (req,res)=>{
   const userName = req.body.user
   const query = `SELECT * FROM users WHERE usersName = '${userName}'`
   let user = await db.query(query)
-  console.log(user)
   return res.json(user)
 })
 router.post('/addUser',async (req,res)=>{
