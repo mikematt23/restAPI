@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs');
 const db = require('../data/database')
-const bcrypt = require('bcryptjs');
+
 
 router.post('/getBlogUser',async (req,res)=>{
   const userName = req.body.user
