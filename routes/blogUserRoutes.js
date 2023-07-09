@@ -2,16 +2,24 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs');
 const db = require('../data/database')
+const bcrypt = require('bcryptjs');
 
 router.post('/getBlogUser',async (req,res)=>{
   const userName = req.body.user
+  const password = req.body.password
   const query = `SELECT * FROM blog_users WHERE userName = '${userName}'`
   const user = await db.query(query)
   console.log(user[0][0])
   if(user[0][0] === undefined){
     return res.json({message:"No User"})
   }
-  return res.send(user[0][0])
+  await bcrypt.compare(password,user[0][0].password,async (err,result)=>{
+    if(result){
+      return res.json(user[0][0])
+    }else{
+      return res.json({message:"password not correct"})
+    }
+  })
 })
 
 router.post("/addBlogUser",async (req,res)=>{

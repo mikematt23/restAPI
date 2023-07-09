@@ -9,7 +9,7 @@ const reduxCartRoutes = require("./routes/reduxCartRoutes")
 
 app.use(cors())
 app.use(express.json())
-let port = process.env.PORT
+let port = process.env.PORT 
 
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname,'/index.html'))
